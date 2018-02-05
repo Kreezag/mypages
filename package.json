@@ -5,6 +5,7 @@
   "dependencies": {
     "babel-eslint": "^8.2.1",
     "material-ui": "^0.20.0",
+    "open-graph-scraper": "^3.1.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.0"
