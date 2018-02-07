@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import SimpleCard from './components/Card';
 import Header from './components/Head';
+import HeadFilters from './components/HeadFilters';
 import { withStyles } from 'material-ui/styles';
-import { articleStore } from './store';
+import { articleStore, labelStore } from './store';
 
 
 
 const styles = {
   cards: {
-    padding: 20,
+    paddingLeft: 14,
+    paddingRight: 14,
     boxSizing: 'border-box',
     display: 'flex',
     width: '100%'
   },
+  headerFilters: {
+    float: 'left',
+    paddingLeft: 10,
+    paddingRight: 10
+  },
   cardsIn: {
     float: 'left',
-    padding: 10
+    paddingLeft: 10,
+    paddingRight: 10
   },
   header: {
     width: '100%'
@@ -27,9 +34,8 @@ const styles = {
 const App = ({ classes }) => {
   return (
     <div className="App">
-      <div className={classes.header}>
-        <Header />
-      </div>
+      <Header className={classes.header} />
+      <HeadFilters className={classes.headerFilters} />
       <div className={classes.cards}>
         {articleStore.articles.map((item) => (
           <div key={item.title} className={classes.cardsIn}>
