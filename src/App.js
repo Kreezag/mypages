@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import SimpleCard from './components/Card';
+import Header from './components/Head';
 import { withStyles } from 'material-ui/styles';
 import { articleStore } from './store';
 
@@ -17,16 +18,18 @@ const styles = {
   cardsIn: {
     float: 'left',
     padding: 10
+  },
+  header: {
+    width: '100%'
   }
 };
 
 const App = ({ classes }) => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to React</h1>
-      </header>
+      <div className={classes.header}>
+        <Header />
+      </div>
       <div className={classes.cards}>
         {articleStore.articles.map((item) => (
           <div key={item.title} className={classes.cardsIn}>
@@ -39,9 +42,6 @@ const App = ({ classes }) => {
             />
           </div>
         ))}
-        {/*<div className={classes.cardsIn}><SimpleCard /></div>*/}
-        {/*<div className={classes.cardsIn}><SimpleCard /></div>*/}
-
       </div>
       <div>
         <p className="App-intro">
