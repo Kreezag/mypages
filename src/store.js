@@ -59,11 +59,13 @@ const articleStore = {
         {
           uuid: '@JS',
           text: 'JS',
+          shortTitle: 'JS',
           color: '#f09'
         },
         {
           uuid: '@HTML',
           text: 'HTML',
+          shortTitle: 'HTML',
           color: '#f15931'
         }
       ]
@@ -72,4 +74,34 @@ const articleStore = {
 };
 
 
-export { articleStore };
+const labelStore = {
+  items: [
+    {
+      uuid: '@JS',
+      text: 'JS',
+      shortTitle: 'JS',
+      color: '#f09'
+    },
+    {
+      uuid: '@CSS',
+      text: 'CSS',
+      shortTitle: 'CSS',
+      color: '#28A9E0'
+    },
+    {
+      uuid: '@HTML',
+      text: 'HTML',
+      shortTitle: 'HTML',
+      color: '#f15931'
+    },
+    {
+      uuid: '@REDUX',
+      text: 'REDUX',
+      shortTitle: 'REDUX',
+      color: '#764ABC'
+    }
+  ]
+};
+
+
+export { articleStore, labelStore };
