@@ -9,22 +9,25 @@ import Card, { CardActions, CardContent } from 'material-ui/Card';
 
 
 const styles = {
-  card: {
+  simpleCard: {
     maxWidth: 300,
     display: 'inline-block'
   },
-  cardImage: {
+  simpleCardIn: {
+
+  },
+  simpleCardImage: {
     width: 300,
     height: 150
   },
-  cardTitle: {
+  simpleCardTitle: {
   },
-  cardPublisher: {},
-  cardButtonWr: {
-    // alignItems: 'right'
-    float: 'right'
+  simpleCardPublisher: {},
+  simpleCardButtonWr: {
+    display: 'flex',
+    justifyContent: 'flex-end'
   },
-  cardButton: {
+  simpleCardButton: {
     color: 'black'
   }
 };
@@ -39,33 +42,35 @@ const SimpleCard = ({
 }) => {
   console.log(image);
   return (
-    <Card className={classes.card}>
-      {image && (<img
-        className={classes.cardImage}
-        src={image}
-        title="Contemplative Reptile"
-      />)}
-      <CardContent>
-        {title && (
-          <Typography className={classes.cardTitle} variant="headline" component="h2">
-            {title}
-          </Typography>
-        )}
-        {publisher && (
-          <Typography className={classes.cardPublisher} component="div">
-            {publisher}
-          </Typography>
-        )}
-        {Array.isArray(labels) && labels.map((label) => (
-          <div key={label.uuid} style={{ backgroundColor: label.color }}>{label.text}</div>
-        ))}
-      </CardContent>
-      <CardActions className={classes.cardButtonWr}>
-        <Button className={classes.cardButton} size="small" color="primary">
-          <FormatPaint />
-        </Button>
-      </CardActions>
-    </Card>
+    <div className={classes.simpleCard}>
+      <Card className={classes.simpleCardIn}>
+        {image && (<img
+          className={classes.simpleCardImage}
+          src={image}
+          title="Contemplative Reptile"
+        />)}
+        <CardContent>
+          {title && (
+            <Typography className={classes.simpleCardTitle} variant="headline" component="h2">
+              {title}
+            </Typography>
+          )}
+          {publisher && (
+            <Typography className={classes.simpleCardPublisher} component="div">
+              {publisher}
+            </Typography>
+          )}
+          {Array.isArray(labels) && labels.map((label) => (
+            <div key={label.uuid} style={{ backgroundColor: label.color }}>{label.text}</div>
+          ))}
+        </CardContent>
+        <CardActions className={classes.simpleCardButtonWr}>
+          <Button className={classes.simpleCardButton} size="small" color="primary">
+            <FormatPaint />
+          </Button>
+        </CardActions>
+      </Card>
+    </div>
   );
 };
 
