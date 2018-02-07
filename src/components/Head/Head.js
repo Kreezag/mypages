@@ -14,6 +14,7 @@ const styles = {
   head: {
     width: '100%',
   },
+  headBar: {},
   headMenu: {
     marginLeft: -12,
     marginRight: 20,
@@ -26,17 +27,19 @@ const styles = {
 
 const Head = ({ classes }) => {
   return (
-    <AppBar className={classes.head} position="static">
-      <Toolbar>
-        <IconButton className={classes.headMenu} color="inherit" aria-label="Menu">
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="title" color="inherit" className={classes.headTitle}>
-          MyPages
-        </Typography>
-        <Button className={classes.headUser} color="inherit">Login</Button>
-      </Toolbar>
-    </AppBar>
+    <div className={classes.head}>
+      <AppBar className={classes.headBar} position="static">
+        <Toolbar>
+          <IconButton className={classes.headMenu} color="inherit" aria-label="Menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="title" color="inherit" className={classes.headTitle}>
+            MyPages
+          </Typography>
+          <Button className={classes.headUser} color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 };
 
