@@ -1,7 +1,8 @@
-const mainStore = {
+import { createStore } from 'redux'
 
-};
 
+
+const store = createStore( () => {}, {}) //WAT ;)
 
 const articleStore = {
   articles: [
@@ -104,4 +105,4 @@ const labelStore = {
 };
 
 
-export { articleStore, labelStore };
+export { articleStore, labelStore, store };
