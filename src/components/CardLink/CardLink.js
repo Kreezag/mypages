@@ -9,73 +9,77 @@ import Card, { CardActions, CardContent } from 'material-ui/Card';
 
 
 const styles = {
-  simpleCard: {
+  CardLink: {
     maxWidth: 300,
     display: 'inline-block'
   },
-  simpleCardIn: {
+  CardLinkIn: {
 
   },
-  simpleCardImage: {
+  CardLinkImage: {
     width: 300,
     height: 150
   },
-  simpleCardTitle: {
+  CardLinkTitle: {
   },
-  simpleCardPublisher: {},
-  simpleCardButtonWr: {
+  CardLinkPublisher: {},
+  CardLinkButtonWr: {
     display: 'flex',
     justifyContent: 'flex-end'
   },
-  simpleCardButton: {
+  CardLinkButton: {
     color: 'black'
   }
 };
 
-const SimpleCard = ({
+const CardLink = ({
   classes,
   image,
   title,
   publisher,
   stars,
-  labels
+  labels,
+  link
 }) => {
-  console.log(image);
   return (
-    <div className={classes.simpleCard}>
-      <Card className={classes.simpleCardIn}>
+    <a className={classes.CardLink} href={link} target="_blank" rel="noreferer noopener">
+      <Card className={classes.CardLinkIn}>
         {image && (<img
-          className={classes.simpleCardImage}
+          className={classes.CardLinkImage}
           src={image}
           title="Contemplative Reptile"
         />)}
         <CardContent>
           {title && (
-            <Typography className={classes.simpleCardTitle} variant="headline" component="h2">
+            <Typography className={classes.CardLinkTitle} variant="headline" component="h2">
               {title}
             </Typography>
           )}
           {publisher && (
-            <Typography className={classes.simpleCardPublisher} component="div">
+            <Typography className={classes.CardLinkPublisher} component="div">
               {publisher}
             </Typography>
           )}
           {Array.isArray(labels) && labels.map((label) => (
-            <div key={label.uuid} style={{ backgroundColor: label.color }}>{label.text}</div>
+            <div
+              key={label.uuid}
+              style={{ backgroundColor: label.color }}
+              className={classes.CardLinkPublisher}
+            >{label.text}</div>
           ))}
         </CardContent>
-        <CardActions className={classes.simpleCardButtonWr}>
-          <Button className={classes.simpleCardButton} size="small" color="primary">
+        <CardActions className={classes.CardLinkButtonWr}>
+          <Button className={classes.CardLinkButton} size="small" color="primary">
             <FormatPaint />
           </Button>
         </CardActions>
       </Card>
-    </div>
+    </a>
   );
 };
 
-SimpleCard.propTypes = {
+CardLink.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SimpleCard);
+export default withStyles(styles)(CardLink);

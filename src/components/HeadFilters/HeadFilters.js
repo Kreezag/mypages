@@ -8,31 +8,31 @@ import { labelStore } from '../../store';
 
 
 const styles = {
-  headFilters: {
+  HeadFilters: {
     padding: 20,
     textAlign: 'left'
   },
-  headFiltersButton: {
+  HeadFiltersButton: {
     margin: 4,
     fontSize: 14
   },
-  headFiltersButtonText: {
+  HeadFiltersButtonText: {
     color: 'white'
   }
 };
 
 const HeadFilters = ({ classes }) => {
   return (
-    <div className={classes.headFilters}>
+    <div className={classes.HeadFilters}>
       {labelStore.items.map((label) => (
         <Button
           key={label.uuid}
-          className={classes.headFiltersButton}
+          className={classes.HeadFiltersButton}
           variant="fab"
           aria-label={label.text}
           style={{ backgroundColor: label.color }}
         >
-          <span className={classes.headFiltersButtonText}>
+          <span className={classes.HeadFiltersButtonText}>
             {label.shortTitle}
           </span>
         </Button>
@@ -41,7 +41,7 @@ const HeadFilters = ({ classes }) => {
         variant="fab"
         color="default"
         aria-label="add"
-        className={classes.headFiltersButton}
+        className={classes.HeadFiltersButton}
       >
         <AddIcon style={{ width: '1.5em', height: '1.5em' }} />
       </Button>

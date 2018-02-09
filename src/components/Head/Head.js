@@ -11,32 +11,32 @@ import IconButton from 'material-ui/IconButton';
 
 
 const styles = {
-  head: {
+  Head: {
     width: '100%',
   },
-  headBar: {},
-  headMenu: {
+  HeadBar: {},
+  HeadMenu: {
     marginLeft: -12,
     marginRight: 20,
   },
-  headTitle: {
+  HeadTitle: {
     flex: 1,
   },
-  headUser: {}
+  HeadUser: {}
 };
 
 const Head = ({ classes }) => {
   return (
-    <div className={classes.head}>
-      <AppBar className={classes.headBar} position="static">
+    <div className={classes.Head}>
+      <AppBar className={classes.HeadBar} position="static">
         <Toolbar>
-          <IconButton className={classes.headMenu} color="inherit" aria-label="Menu">
+          <IconButton className={classes.HeadMenu} color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="title" color="inherit" className={classes.headTitle}>
+          <Typography variant="title" color="inherit" className={classes.HeadTitle}>
             MyPages
           </Typography>
-          <Button className={classes.headUser} color="inherit">Login</Button>
+          <Button className={classes.HeadUser} color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>
