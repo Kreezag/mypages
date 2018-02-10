@@ -1,4 +1,4 @@
-import HeadFilters from './HeadFilters';
+import HeadFilters from './HeadFilters.view';
 
 
 
