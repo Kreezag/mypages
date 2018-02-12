@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware } from 'redux'
-import rootReducer from '../reducers'
+import { articlesReducer } from '../reducers'
 
 
 
 export default function configureStore(initialState) {
-  const store = createStore(rootReducer, initialState);
+  const store = createStore(articlesReducer, initialState);
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {

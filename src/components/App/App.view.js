@@ -1,7 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import { CardLink, Head, HeadFilters } from '../';
 import { withStyles } from 'material-ui/styles';
-import { articleStore, labelStore } from '../../store';
 
 
 
@@ -33,12 +33,13 @@ const styles = {
 
 
 const App = ({ classes }) => {
+  console.log(this);
   return (
     <div  className={classes.App}>
       <Head className={classes.AppHead} />
       <HeadFilters className={classes.AppAppHeadsFilters} />
       <div className={classes.AppCardLink}>
-        {articleStore.articles.map((item, index) => (
+        {this.props.articles.map((item, index) => (
           <div key={`@${index}${item.title}`} className={classes.AppCardLinkIn}>
             <CardLink
               image={item.image}
@@ -58,5 +59,7 @@ const App = ({ classes }) => {
     </div>
   );
 };
+
+
 
 export default withStyles(styles)(App);
