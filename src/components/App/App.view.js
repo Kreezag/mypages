@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux'
 import { CardLink, Head, HeadFilters } from '../';
 import { withStyles } from 'material-ui/styles';
+import { articleStore } from '../../store';
 
 
 
@@ -39,7 +39,7 @@ const App = ({ classes }) => {
       <Head className={classes.AppHead} />
       <HeadFilters className={classes.AppAppHeadsFilters} />
       <div className={classes.AppCardLink}>
-        {this.props.articles.map((item, index) => (
+        {articleStore.articles.map((item, index) => (
           <div key={`@${index}${item.title}`} className={classes.AppCardLinkIn}>
             <CardLink
               image={item.image}

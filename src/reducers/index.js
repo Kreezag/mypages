@@ -68,7 +68,11 @@ const initialState = {
   ]
 };
 
-export const articlesReducer = (state = [], action) => {
+export const articlesReducer = (state = initialState, action) => {
+  if (!action) {
+    return state;
+  }
+
   if (action.type === 'ADD_ARTICLE') {
     return [
       ...state,
