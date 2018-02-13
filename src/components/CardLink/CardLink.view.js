@@ -10,17 +10,22 @@ import Card, { CardActions, CardContent } from 'material-ui/Card';
 
 const styles = {
   CardLink: {
-    maxWidth: 300,
-    display: 'inline-block'
+    display: 'flex',
+    justifyContent: 'center',
+    textAlign: 'left'
   },
   CardLinkIn: {
-
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
   },
   CardLinkImage: {
-    width: 300,
-    height: 150
+    width: '100%',
+    height: '125px'
   },
   CardLinkTitle: {
+    width: '100%'
   },
   CardLinkPublisher: {},
   CardLinkButtonWr: {
@@ -29,6 +34,17 @@ const styles = {
   },
   CardLinkButton: {
     color: 'black'
+  },
+  CardLinkLabelList: {
+    textAlign: 'left'
+  },
+  CardLinkLabel: {
+    display: 'inline-block',
+    borderRadius: '0 10px 10px 0',
+    color: 'white',
+    padding: '2px 4px',
+    marginRight: '4px',
+    fontSize: '12px'
   }
 };
 
@@ -60,13 +76,15 @@ const CardLink = ({
               {publisher}
             </Typography>
           )}
-          {Array.isArray(labels) && labels.map((label) => (
-            <div
-              key={label.uuid}
-              style={{ backgroundColor: label.color }}
-              className={classes.CardLinkPublisher}
-            >{label.text}</div>
-          ))}
+          <div className={classes.CardLinkLabelList}>
+            {Array.isArray(labels) && labels.map((label) => (
+              <div
+                key={label.uuid}
+                style={{ backgroundColor: label.color }}
+                className={classes.CardLinkLabel}
+              >{label.text}</div>
+            ))}
+          </div>
         </CardContent>
         <CardActions className={classes.CardLinkButtonWr}>
           <Button className={classes.CardLinkButton} size="small" color="primary">

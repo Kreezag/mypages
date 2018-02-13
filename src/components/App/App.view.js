@@ -22,10 +22,11 @@ const styles = {
     paddingRight: 14,
     boxSizing: 'border-box',
     display: 'flex',
-    width: '100%'
+    width: '100%',
+    alignItems: 'stretch'
   },
   AppCardLinkIn: {
-    float: 'left',
+    display: 'inline-flex',
     paddingLeft: 10,
     paddingRight: 10
   }
