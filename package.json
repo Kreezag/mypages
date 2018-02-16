@@ -23,10 +23,12 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "lodash": "^4.17.5",
     "material-ui": "^1.0.0-beta.33",
     "material-ui-icons": "^1.0.0-beta.17",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "react-redux": "^5.0.6"
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
   }
 }
