@@ -3,7 +3,16 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './src/components';
+import { reducers } from './src/store'
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-render((<App/>),
-    document.getElementById('react-root')
+const store = createStore(reducers, {});
+
+render((
+  <Provider store={store}>
+    <App/>
+  </Provider>
+  ),
+  document.getElementById('react-root')
 );

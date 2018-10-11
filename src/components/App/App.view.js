@@ -1,7 +1,7 @@
 import React from 'react';
 import { CardLink, Head, HeadFilters } from '../';
 import { withStyles } from 'material-ui/styles';
-import { articleStore } from '../../store';
+import { articleStore } from '../../store/testStores';
 
 
 
@@ -35,7 +35,6 @@ const styles = {
 
 
 const App = ({ classes }) => {
-  console.log(this);
   return (
     <div  className={classes.App}>
       <Head className={classes.AppHead} />
