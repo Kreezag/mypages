@@ -30,6 +30,8 @@ module.exports = {
         hot: false,
 
         stats: { colors: true },
-        contentBase: `${__dirname}`
+        contentBase: `${__dirname}`,
+        open: 'Chrome'
+
     }
 };
