@@ -4,14 +4,14 @@ import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import FormatPaint from 'material-ui-icons/FormatPaint';
-import Card, { CardActions, CardContent } from 'material-ui/Card';
+import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
 
 
 const styles = {
   CardLink: {
-    display: 'flex',
     justifyContent: 'center',
+    width: '100%',
     textAlign: 'left'
   },
   CardLinkIn: {
@@ -40,7 +40,7 @@ const styles = {
   },
   CardLinkLabel: {
     display: 'inline-block',
-    borderRadius: '0 10px 10px 0',
+    borderRadius: '2px',
     color: 'white',
     padding: '2px 4px',
     marginRight: '4px',
@@ -60,11 +60,6 @@ const CardLink = ({
   return (
     <a className={classes.CardLink} href={link} target="_blank" rel="noreferer noopener">
       <Card className={classes.CardLinkIn}>
-        {image && (<img
-          className={classes.CardLinkImage}
-          src={image}
-          title="Contemplative Reptile"
-        />)}
         <CardContent>
           {title && (
             <Typography className={classes.CardLinkTitle} variant="headline" component="h2">
@@ -76,6 +71,15 @@ const CardLink = ({
               {publisher}
             </Typography>
           )}
+        </CardContent>
+        {image && (
+          <CardMedia
+            className={classes.CardLinkImage}
+            image={image}
+            title="article image"
+          />
+        )}
+        <CardContent>
           <div className={classes.CardLinkLabelList}>
             {Array.isArray(labels) && labels.map((label) => (
               <div
