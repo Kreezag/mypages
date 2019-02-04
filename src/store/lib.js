@@ -13,9 +13,8 @@ export const actionCreator = (type, actionFactory = () => {}) => {
 
   return ({
     type,
-    payload: actionFactory()
-  })
-
+    payload: actionFactory(),
+  });
 };
 
 export const createReducer = (initialState, action) => () => {
@@ -27,4 +26,3 @@ export const createReducer = (initialState, action) => () => {
 
   return state || initialState;
 };
-
