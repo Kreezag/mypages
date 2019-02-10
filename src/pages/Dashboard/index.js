@@ -2,6 +2,7 @@ import React from 'react';
 import { withStyles } from 'material-ui/styles';
 import { articleStore } from '../../store/testStores';
 import CardLink from '../../components/CardLink';
+import CardEmpty from '../../components/CardEmpty';
 import HeadFilters from '../../components/HeadFilters';
 
 
@@ -50,6 +51,9 @@ const Dashboard = ({ classes }) => (
           />
         </div>
       ))}
+      <div className={classes.AppCardLinksItem}>
+        <CardEmpty />
+      </div>
     </div>
   </div>
 );

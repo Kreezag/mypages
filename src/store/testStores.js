@@ -6,7 +6,7 @@ const articleStore = {
       title: 'Title',
       description: 'some long description',
       link: 'https://reactjs.org/',
-      image: 'https://reactjs.org/logo-og.png',
+      // image: 'https://reactjs.org/logo-og.png',
       stars: '5',
       date: new Date(),
       labels: [

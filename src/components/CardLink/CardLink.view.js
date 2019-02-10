@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isFunction from 'lodash/isFunction';
 import { withStyles } from 'material-ui/styles';
 // import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
@@ -49,7 +50,8 @@ const CardLink = ({
   title,
   publisher,
   labels,
-  link
+  link,
+  placeholder
 }) => {
   return (
     <Card>
@@ -66,12 +68,16 @@ const CardLink = ({
             </Typography>
           )}
         </CardContent>
-        {image && (
+        {image ? (
           <CardMedia
             className={classes.CardLinkImage}
             image={image}
             title="article image"
           />
+        ) : (
+          <div className={classes.CardLinkImage}>
+            {placeholder ? (isFunction(placeholder) ? placeholder() : placeholder ) : 'placeholder'}
+          </div>
         )}
         <CardContent>
           <div className={classes.CardLinkLabelList}>
@@ -94,18 +100,22 @@ const CardLink = ({
   );
 };
 
+CardLink.defaultProps = {
+  placeholder: null,
+
+};
+
 CardLink.propTypes = {
-    classes: PropTypes.shape({
-      image: PropTypes.string,
-      title: PropTypes.string.isRequired,
-      publisher: PropTypes.string.isRequired,
-      labels: PropTypes.arrayOf(PropTypes.shape({
-        uuid: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired,
-        color: PropTypes.string.isRequired
-      })).isRequired,
-      link: PropTypes.string.isRequired
-    }).isRequired
+  classes: PropTypes.object,
+  image: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  publisher: PropTypes.string.isRequired,
+  labels: PropTypes.arrayOf(PropTypes.shape({
+    uuid: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired
+  })),
+  link: PropTypes.string.isRequired
 };
 
 export default withStyles(styles)(CardLink);
