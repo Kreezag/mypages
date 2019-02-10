@@ -44,14 +44,15 @@ const App = ({ classes }) => {
       <div className={classes.AppContent} >
         <HeadFilters className={classes.AppAppHeadsFilters} />
         <div className={classes.AppCardLinks}>
-          {articleStore.articles.map((item, index) => (
-            <div key={`@${index}${item.title}`} className={classes.AppCardLinksItem}>
+          {articleStore.articles.map(({ image, title, publisher, stars, labels, link }, index) => (
+            <div key={`@${link}${index}`} className={classes.AppCardLinksItem}>
               <CardLink
-                image={item.image}
-                title={item.title}
-                publisher={item.publisher}
-                stars={item.stars}
-                labels={item.labels}
+                image={image}
+                title={title}
+                publisher={publisher}
+                stars={stars}
+                labels={labels}
+                link={link}
               />
             </div>
           ))}
