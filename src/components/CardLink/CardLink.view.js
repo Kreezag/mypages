@@ -10,15 +10,10 @@ import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 
 const styles = {
   CardLink: {
-    justifyContent: 'center',
     width: '100%',
-    textAlign: 'left'
-  },
-  CardLinkIn: {
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
+    textAlign: 'left',
+    display: 'inline-block',
+    textDecoration: 'none'
   },
   CardLinkImage: {
     width: '100%',
@@ -53,13 +48,12 @@ const CardLink = ({
   image,
   title,
   publisher,
-  stars,
   labels,
   link
 }) => {
   return (
-    <a className={classes.CardLink} href={link} target="_blank" rel="noreferer noopener">
-      <Card className={classes.CardLinkIn}>
+    <Card>
+      <a className={classes.CardLink} href={link} target="_blank" rel="noreferer noopener">
         <CardContent>
           {title && (
             <Typography className={classes.CardLinkTitle} variant="headline" component="h2">
@@ -90,18 +84,28 @@ const CardLink = ({
             ))}
           </div>
         </CardContent>
-        <CardActions className={classes.CardLinkButtonWr}>
-          <Button className={classes.CardLinkButton} size="small" color="primary">
-            <FormatPaint />
-          </Button>
-        </CardActions>
-      </Card>
-    </a>
+        {/*<CardActions className={classes.CardLinkButtonWr}>*/}
+          {/*<Button className={classes.CardLinkButton} size="small" color="primary">*/}
+            {/*<FormatPaint />*/}
+          {/*</Button>*/}
+        {/*</CardActions>*/}
+      </a>
+    </Card>
   );
 };
 
 CardLink.propTypes = {
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.shape({
+      image: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      publisher: PropTypes.string.isRequired,
+      labels: PropTypes.arrayOf(PropTypes.shape({
+        uuid: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+        color: PropTypes.string.isRequired
+      })).isRequired,
+      link: PropTypes.string.isRequired
+    }).isRequired
 };
 
 export default withStyles(styles)(CardLink);
