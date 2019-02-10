@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
+// import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
-import FormatPaint from 'material-ui-icons/FormatPaint';
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
+// import FormatPaint from 'material-ui-icons/FormatPaint';
+import Card, { /*CardActions, */CardContent, CardMedia } from 'material-ui/Card';
 
 
 
@@ -96,7 +96,7 @@ const CardLink = ({
 
 CardLink.propTypes = {
     classes: PropTypes.shape({
-      image: PropTypes.string.isRequired,
+      image: PropTypes.string,
       title: PropTypes.string.isRequired,
       publisher: PropTypes.string.isRequired,
       labels: PropTypes.arrayOf(PropTypes.shape({
