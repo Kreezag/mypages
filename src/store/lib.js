@@ -17,12 +17,12 @@ export const actionCreator = (type, actionFactory = () => {}) => {
   });
 };
 
-export const createReducer = (initialState, action) => () => {
-  let state = {};
+export const createReducer = (initialState, action) => {
+  const prevState = initialState || {};
 
   if (action.type) {
-    state = Object.assign(initialState, action.payload);
+    return Object.assign(prevState, action.payload);
   }
 
-  return state || initialState;
+  return initialState;
 };

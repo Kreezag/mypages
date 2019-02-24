@@ -3,18 +3,19 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './src/App';
-import { reducers } from './src/store'
+import { myReducers } from './src/store'
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-const store = createStore(reducers, {});
+const myStore = createStore(myReducers);
 
+console.log(myStore.getState());
 
-
+// myStore.subscribe(() => console.log(myStore.getState()));
 
 
 render((
-  <Provider store={store}>
+  <Provider store={myStore}>
     <App/>
   </Provider>
   ),
