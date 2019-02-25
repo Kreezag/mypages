@@ -1,9 +1,17 @@
 import { actionCreator } from './lib';
 
 
-const ADD_LABEL = actionCreator('ADD_LABEL', label => label);
-const ADD_CARD = actionCreator('ADD_CARD', card => card);
-const ADD_FILTER = actionCreator('ADD_FILTER', filter => filter);
+const ADD_LABEL_ACTION = 'ADD_LABEL';
+const ADD_CARD_ACTION = 'ADD_CARD';
+const ADD_FILTER_ACTION = 'ADD_FILTER';
 
 
-export { ADD_LABEL, ADD_CARD, ADD_FILTER };
+const ADD_LABEL_ACTION_CREATOR = actionCreator(ADD_LABEL_ACTION, label => label);
+const ADD_CARD_ACTION_CREATOR = actionCreator(ADD_CARD_ACTION, card => card);
+const ADD_FILTER_ACTION_CREATOR = actionCreator(ADD_FILTER_ACTION, filter => filter);
+
+
+export {
+  ADD_LABEL_ACTION_CREATOR, ADD_CARD_ACTION_CREATOR, ADD_FILTER_ACTION_CREATOR,
+  ADD_LABEL_ACTION, ADD_CARD_ACTION, ADD_FILTER_ACTION,
+};
