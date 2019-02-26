@@ -1,45 +1,38 @@
 import isFunction from 'lodash/isFunction';
 
-// createStore(reducer, [preloadedState], [enhancer])
-// combineReducers(reducers)
-// applyMiddleware(...middlewares)
-// bindActionCreators(actionCreators, dispatch)
-// compose(...functions)
-
-
-
-// Store
-// getState()
-// dispatch(action)
-// subscribe(listener)
-// replaceReducer(nextReducer)
-// action = { type: TYPE, payload: *, meta: ** }
 
 
 class Store {
-  constructor (reducer = () => {}, initialState = {}) {
+  constructor (reducer) {
+    this.subscribers = [];
+    this.store = {};
     this.reducer = reducer;
-    this.store = initialState;
+    this.dispatch({ type: '@@INIT' });
   }
-
 
   dispatch (action) {
     const result = this.reducer(this.store, action);
 
-    console.log('result', result);
+    if (this.subscribers.length) {
+      this.subscribers.forEach((subscriber) => {
+        subscriber();
+      });
+    }
 
     this.store = result;
+
+    return action;
   }
 
-  // subscribe () {}
+  subscribe (subscriber) {
+    this.subscribers.push(subscriber);
+  }
 
-  // replaceReducer () {}
+  unSubscribe () {
+    this.subscribers = [];
+  }
 
   getState () {
-    console.log('work this file');
-
-    console.log(this.store);
-
     return this.store;
   }
 }

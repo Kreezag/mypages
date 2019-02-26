@@ -5,9 +5,9 @@ import { render } from 'react-dom';
 import App from './src/App';
 import { myReducers, ACTION_CREATORS } from './src/store'
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import Store from './src/lib/myRedux';
 
-const myStore = createStore(myReducers);
+const myStore = new Store(myReducers);
 
 
 myStore.subscribe(() => console.log(myStore.getState()));
@@ -17,7 +17,7 @@ myStore.subscribe(() => console.log(myStore.getState()));
 const testAction = ACTION_CREATORS.ADD_LABEL_ACTION_CREATOR({ name: 'test' });
 
 
-console.log(myStore.dispatch(testAction));
+console.log('+', myStore.dispatch(testAction));
 
 console.log(myStore.getState());
 
