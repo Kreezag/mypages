@@ -14,7 +14,7 @@ myStore.subscribe(() => console.log(myStore.getState()));
 
 
 
-const testAction = ACTION_CREATORS.ADD_LABEL_ACTION_CREATOR('test');
+const testAction = ACTION_CREATORS.ADD_LABEL_ACTION_CREATOR({ name: 'test' });
 
 
 console.log(myStore.dispatch(testAction));
